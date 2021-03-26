@@ -3,7 +3,7 @@
 // STEP 1
 // This is a standard function expression. You may also be familiar with function declarations, which begin with the "function" keyword.
 const theOldWay = function(course) {
-  return `I am currently enrolled in ${course}`;
+    return `I am currently enrolled in ${course}`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -14,7 +14,7 @@ const theOldWay = function(course) {
 // We can refactor our first function to use an arrow function.
 // The word "function" is removed and an arrow is added in between the parameter and the opening curly brace
 const theNewWay = (course) => {
-  return `I am currently enrolled in ${course}`;
+    return `I am currently enrolled in ${course}`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -24,7 +24,7 @@ const theNewWay = (course) => {
 // STEP 3
 // When we have one parameter, we can omit the parentheses
 const withoutParens = course => {
-  return `I am currently enrolled in ${course}`;
+    return `I am currently enrolled in ${course}`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -45,7 +45,7 @@ const oneLiner = course => `I cam currently enrolled in ${course}`;
 // What if we have multiple parameters?
 // In a function expression, they all go in the parentheses
 const add = function(num1, num2) {
-  return `${num1} + ${num2} = ${num1 + num2}`;
+    return `${num1} + ${num2} = ${num1 + num2}`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -65,8 +65,8 @@ const addOneLiner = (num1, num2) => `${num1} + ${num2} = ${num1 + num2}`;
 // What if we have multiple lines of code?
 // We need to use a code block
 const multiLiner = word => {
-  word = word.toUpperCase();
-  return word;
+    word = word.toUpperCase();
+    return word;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -77,11 +77,11 @@ const multiLiner = word => {
 // The way an object is returned is different with an arrow function, too.
 // Here is how we return an object without arrow functions
 const oldObject = function(array) {
-  return {
-    firstValue: array[0],
-    secondValue: array[1],
-    thirdValue: array[2]
-  };
+    return {
+        firstValue: array[0],
+        secondValue: array[1],
+        thirdValue: array[2]
+    };
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -92,9 +92,9 @@ const oldObject = function(array) {
 // With an arrow function, we need to wrap our object in parentheses
 // Otherwise, it will be interpreted as a code block
 const newObject = array => ({
-  firstValue: array[0],
-  secondValue: array[1],
-  thirdValue: array[2]
+    firstValue: array[0],
+    secondValue: array[1],
+    thirdValue: array[2]
 });
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -109,7 +109,7 @@ const newObject = array => ({
 
 
 let sum = function(a, b, c, d) {
-  return a + b + c + d;
+    return a + b + c + d;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -117,11 +117,11 @@ let sum = function(a, b, c, d) {
 
 
 let objectLit = function() {
-  return {
-    key1: 'value1',
-    key2: 'value2',
-    key3: 'value3',
-  };
+    return {
+        key1: 'value1',
+        key2: 'value2',
+        key3: 'value3',
+    };
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -129,9 +129,9 @@ let objectLit = function() {
 
 
 let sumAndProduct = function(a, b) {
-  let sum = a + b;
-  let product = a * b;
-  return [sum, product];
+    let sum = a + b;
+    let product = a * b;
+    return [sum, product];
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -139,7 +139,7 @@ let sumAndProduct = function(a, b) {
 
 
 let message = function(name) {
-  return `Hello, ${name}!`;
+    return `Hello, ${name}!`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -147,9 +147,9 @@ let message = function(name) {
 
 
 let Student = function(name, age, hometown) {
-  this.name = name;
-  this.age = age;
-  this.hometown = hometown;
+    this.name = name;
+    this.age = age;
+    this.hometown = hometown;
 };
 
 let joe = new Student('Joe', 'Schmoe', 100);
@@ -163,7 +163,7 @@ let joe = new Student('Joe', 'Schmoe', 100);
 
 
 Student.prototype.greeting = function() {
-  return `Hi, my name is ${this.name}`;
+    return `Hi, my name is ${this.name}`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -175,7 +175,7 @@ Student.prototype.greeting = function() {
 
 
 Student.courseName = function() {
-  return 'This student is enrolled in Code 301.';
+    return 'This student is enrolled in Code 301.';
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
@@ -186,21 +186,22 @@ Student.courseName = function() {
 // STEP 11
 // How do arrow functions affect constructor functions?
 Student.prototype.scope = function() {
-  console.log(this);
+    //  console.log(this);
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+//console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
-//
+//Student {name: "Joe", age: "Schmoe", hometown: 100} 
+
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+//Window {window: Window, self: Window, document: document, name: "", location: Location, …} undefined
 // 3. Explain why "this" is different when an arrow function is used.
-//
+//Arrow functions do not have their own this value. The value of this inside an arrow function is always inherited from the enclosing scope.
