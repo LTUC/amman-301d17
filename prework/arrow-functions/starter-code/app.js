@@ -203,4 +203,5 @@ console.log(joe.scopeArrow());
 // 2. What is "this" when joe.scopeArrow() is invoked?
 // undefine.
 // 3. Explain why "this" is different when an arrow function is used.
-// becuase use strict to make the code more safety.
+// becuase use strict to make the code more safety , and the arrow function cannot be used with the constructor because its "this" gives the value of the global window
+
