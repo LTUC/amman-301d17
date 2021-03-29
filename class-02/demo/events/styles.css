@@ -1,0 +1,23 @@
+body {
+  background: #ccc;
+}
+
+li {
+  font-size: 1.5em;
+}
+
+/* ul { 
+  visibility: hidden; 
+} */
+
+
+/* ul.on {
+  visibility: visible;
+  background-color: aqua;
+} */
+
+
+/* li.person-template {
+  display:none;
+} */
+
