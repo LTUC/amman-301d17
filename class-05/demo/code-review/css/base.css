@@ -1,0 +1,21 @@
+
+@import url('./layouts.css');
+@import url('./modules.css');
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+}
+
