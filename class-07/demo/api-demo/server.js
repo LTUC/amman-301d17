@@ -18,10 +18,9 @@ app.use(cors());
 
 // Routes
 app.get('/', homeRouteHandler);
-app.get('/location', locationHandler);
+app.get('/location', locationHandler1);
 app.get('/weather', weatherHandler);
 app.get('*', notFoundHandler);
-
 
 
 // Routes Handlers
@@ -29,24 +28,40 @@ function homeRouteHandler(request, response) {
     response.status(200).send('you did a great job');
 }
 
+
 //http://localhost:3000/location?city=amman
-function locationHandler(req, res) {
+function locationHandler1(req, res) {
+    let cityName = req.query.city;
+    // let locationData = locationHandler2(cityName);
+    // console.log('after superagent');
+    // console.log(locationData);
+    // res.send(locationData);
+    locationHandler2(cityName)
+        .then(locationData => {
+            res.send(locationData);
+        })
+
+        
+}
+
+function locationHandler2(cityName) {
     // get data from api server (locationIQ)
     // send a request using superagent library (request url + key)
-    console.log(req.query);
-    let cityName = req.query.city;
-    console.log(cityName)
+    // console.log(req.query);
+    // let cityName = req.query.city;
+    // console.log(cityName)
     let key = process.env.LOCATION_KEY;
     let LocURL = `https://eu1.locationiq.com/v1/search.php?key=${key}&q=${cityName}&format=json`;
 
     console.log('before superagent');
-    superagent.get(LocURL) //send request to LocationIQ API
+    return superagent.get(LocURL) //send request to LocationIQ API
         .then(geoData => {
             console.log('inside superagent');
-            console.log(geoData.body);
+            // console.log(geoData.body);
             let gData = geoData.body;
             const locationData = new Location(cityName, gData);
-            res.send(locationData);
+
+            return locationData;
             // return locationData;
         })
         // .then((locationData) => {
@@ -58,7 +73,7 @@ function locationHandler(req, res) {
             console.error(error);
             res.send(error);
         })
-    console.log('after superagent');
+
 
 }
 
