@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>To-Do List</title>
+  </head>
+
+
+  <body>
+
+    <%- include('./layout/header')  %> 
+   
+
+    <main>
+      <section>
+         <ul>
+         
+            <li>
+              <h3>Task Title: <%= task.title  %> </h3>
+              <p>Task description: <%= task.description  %> </p>
+              <p>Task contact: <%= task.contact  %> </p>
+              <p>Task Status: <%= task.status  %> </p>
+              <p>Task category: <%= task.category  %> </p>
+              
+            </li>
+         
+         </ul>
+
+         <form action="/deleteTask/<%=task.id%>?_method=delete" method="post">
+            <button>Delete Task</button>
+         </form>
+
+         <button id='updateBtn'>Update</button>
+         <section id='updateForm'>
+           <h3>Update Task From</h3>
+           <form action="/updateTask/<%=task.id%>?_method=put" method="post">
+            <input type="text" name="title" value=' <%= task.title  %> '>
+            <textarea name="description" cols="30" rows="10"><%= task.description  %></textarea>
+            <input type="text" name="contact" value="<%= task.contact  %>">
+            <input type="text" name="status" value="<%= task.status  %>">
+            <input type="text" name="category" value="<%= task.category  %>">
+            <button type="submit">Update Task</button>
+        </form>
+         </section>
+
+      </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
